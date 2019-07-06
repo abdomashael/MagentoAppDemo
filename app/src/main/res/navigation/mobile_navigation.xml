@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.mashael.magentodemo.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_whats_new"
+        android:name="com.mashael.magentodemo.ui.whats_new.WhatsNewFragment"
+        android:label="@string/menu_whats_new"
+        tools:layout="@layout/fragment_whats_new" />
+
+    <fragment
+        android:id="@+id/nav_women"
+        android:name="com.mashael.magentodemo.ui.women.WomenFragment"
+        android:label="@string/menu_women"
+        tools:layout="@layout/fragment_women" />
+    <fragment
+        android:id="@+id/nav_men"
+        android:name="com.mashael.magentodemo.ui.men.MenFragment"
+        android:label="@string/menu_men"
+        tools:layout="@layout/fragment_men" />
+
+    <fragment
+        android:id="@+id/nav_gears"
+        android:name="com.mashael.magentodemo.ui.gears.GearsFragment"
+        android:label="@string/menu_gear"
+        tools:layout="@layout/fragment_gear" />
+    <fragment
+        android:id="@+id/nav_training"
+        android:name="com.mashael.magentodemo.ui.training.TrainingFragment"
+        android:label="@string/menu_training"
+        tools:layout="@layout/fragment_training" />
+    <fragment
+        android:id="@+id/nav_sale"
+        android:name="com.mashael.magentodemo.ui.sale.SaleFragment"
+        android:label="@string/menu_sale"
+        tools:layout="@layout/fragment_sale" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.mashael.magentodemo.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.mashael.magentodemo.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>

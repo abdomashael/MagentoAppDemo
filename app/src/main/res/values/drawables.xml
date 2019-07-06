@@ -1,0 +1,11 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_home" type="drawable">@drawable/hot_sale</item>
+    <item name="ic_menu_whats_new" type="drawable">@drawable/whats_new</item>
+    <item name="ic_menu_women" type="drawable">@drawable/woman</item>
+    <item name="ic_menu_men" type="drawable">@drawable/man</item>
+    <item name="ic_menu_gear" type="drawable">@drawable/time</item>
+    <item name="ic_menu_training" type="drawable">@drawable/training</item>
+    <item name="ic_menu_sale" type="drawable">@drawable/sale</item>
+    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
+    <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    tools:showIn="@layout/fragment_women">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/product_main_margin"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+        <View
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            />
+        <TextView
+            android:id="@+id/sub_category_TextView"
+            android:background="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tops"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@android:color/white"
+        android:id="@+id/sub_category_items_Recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/sub_category_item"/>
+
+
+</LinearLayout>

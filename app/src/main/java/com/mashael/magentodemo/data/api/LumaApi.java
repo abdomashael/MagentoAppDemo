@@ -3,8 +3,10 @@ package com.mashael.magentodemo.data.api;
 import com.mashael.magentodemo.data.api.interfaces.AuthService;
 import com.mashael.magentodemo.data.api.interfaces.CategoriesInterface;
 import com.mashael.magentodemo.data.api.interfaces.CategoryProductsInterface;
+import com.mashael.magentodemo.data.api.interfaces.ProductsInterface;
 import com.mashael.magentodemo.data.api.models.Categories;
 import com.mashael.magentodemo.data.api.models.CategoryProducts;
+import com.mashael.magentodemo.data.api.models.products_details.CategoryProductsDetails;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -24,8 +26,8 @@ public class LumaApi {
     private static String sAcessToken = "Bearer ";
 
     private static final OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .readTimeout(60, TimeUnit.SECONDS)
-            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(30, TimeUnit.SECONDS)
             .build();
 
     private static Retrofit sRetrofit =
@@ -53,6 +55,18 @@ public class LumaApi {
         mCategoryProductsInterface
                 .getCategoryProducts(tokenValue, categoryId)
                 .enqueue(categoryProductsCallBack);
+    }
+
+    public void getCategoryProductsDetails(String tokenValue,
+                                           String skuListString,
+                                           Callback<CategoryProductsDetails> productsDetailsCallback){
+        ProductsInterface mProductsInterface= sRetrofit.create(ProductsInterface.class);
+
+        mProductsInterface.getCustomSearchProducts(tokenValue,
+                "sku" ,
+                skuListString,
+                "in")
+                .enqueue(productsDetailsCallback);
     }
 
 

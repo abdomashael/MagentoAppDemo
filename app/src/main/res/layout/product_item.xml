@@ -6,17 +6,17 @@
     android:id="@+id/product_linearLayout"
     android:clickable="true"
     android:focusable="true"
+    android:gravity="center"
+    android:layout_gravity="center"
     android:background="?attr/selectableItemBackground"
     android:padding="@dimen/product_item_margin">
 
     <include layout="@layout/product_item_top_layout" />
 
     <include
-        android:id="@+id/without_size_layout"
         layout="@layout/product_item_without_size" />
 
     <include
-        android:id="@+id/with_size_layout"
         layout="@layout/product_item_with_size" />
 
     <include layout="@layout/product_item_bottom_layout" />

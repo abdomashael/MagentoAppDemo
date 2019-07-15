@@ -6,12 +6,16 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.mashael.magentodemo.data.api.models.products_details.Items;
 import com.mashael.magentodemo.data.database.Dao.CategoryDao;
+import com.mashael.magentodemo.data.database.Dao.ItemsDao;
 import com.mashael.magentodemo.data.database.entities.Category;
 
-@Database(entities = {Category.class}, version = 1)
+@Database(entities = {Category.class , Items.class}, version = 1)
 public abstract class LumaRoomDatabase extends RoomDatabase {
     public abstract CategoryDao mCategoryDao();
+    public abstract ItemsDao mItemsDao();
+
 
     private static volatile LumaRoomDatabase INSTANCE;
 

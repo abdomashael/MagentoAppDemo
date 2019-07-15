@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.mashael.magentodemo.ProductsActivity;
+import com.mashael.magentodemo.ui.activities.ProductsActivity;
 import com.mashael.magentodemo.R;
 import com.mashael.magentodemo.data.database.entities.Category;
 
@@ -60,9 +60,12 @@ public class SubCategoryItemRecyclerAdapter extends RecyclerView.Adapter<SubCate
                 .load(resID)
                 .thumbnail(0.1f)
                 .into(holder.subCatImageView);
+
         holder.subCatLinearLayout.setOnClickListener(view -> {
             Intent mIntent = new Intent(mContext, ProductsActivity.class);
-            mIntent.putExtra(ProductsActivity.CAT_ID,mCategory.getId());
+
+            mIntent.putExtra(ProductsActivity.CAT_ID,String.valueOf(mCategory.getId()));
+            mIntent.putExtra(ProductsActivity.CAT_NAME,mCategory.getName());
             mIntent.putExtra(ProductsActivity.PRODUCTS_COUNT,mCategory.getProductCount());
 
             mContext.startActivity(mIntent);

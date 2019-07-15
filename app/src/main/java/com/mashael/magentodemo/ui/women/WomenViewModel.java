@@ -1,10 +1,8 @@
 package com.mashael.magentodemo.ui.women;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.mashael.magentodemo.BodyActivity;
 import com.mashael.magentodemo.data.Repository;
 import com.mashael.magentodemo.data.api.models.CategoryProducts;
 import com.mashael.magentodemo.data.database.entities.Category;

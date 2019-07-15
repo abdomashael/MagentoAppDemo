@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mashael.magentodemo.BodyActivity;
+import com.mashael.magentodemo.ui.activities.BodyActivity;
 import com.mashael.magentodemo.R;
 import com.mashael.magentodemo.data.Repository;
 import com.mashael.magentodemo.data.database.entities.Category;

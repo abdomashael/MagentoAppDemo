@@ -10,4 +10,20 @@
     <color name="colorWhite">#FFFFFF</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="colorShimmer">#dddddd</color>
+
+    <color name="Black">#000000</color>
+    <color name="Blue">#0000df</color>
+    <color name="Brown">#654321</color>
+    <color name="Gray">#d3d3d3</color>
+    <color name="Green">#00df00</color>
+    <color name="Lavender">#E6E6FA</color>
+    <color name="Multi">#dddddd</color>
+    <color name="Orange">#FFA500</color>
+    <color name="Purple">#800080</color>
+    <color name="Red">#dF0000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Yellow">#FFFF00</color>
+
+
 </resources>

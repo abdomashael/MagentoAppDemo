@@ -9,9 +9,12 @@ import androidx.lifecycle.LiveData;
 import com.mashael.magentodemo.data.api.LumaApi;
 import com.mashael.magentodemo.data.api.models.Categories;
 import com.mashael.magentodemo.data.api.models.CategoryProducts;
+import com.mashael.magentodemo.data.api.models.products_details.CategoryProductsDetails;
 import com.mashael.magentodemo.data.database.Dao.CategoryDao;
+import com.mashael.magentodemo.data.database.Dao.TokenDao;
 import com.mashael.magentodemo.data.database.LumaRoomDatabase;
 import com.mashael.magentodemo.data.database.entities.Category;
+import com.mashael.magentodemo.data.database.entities.Token;
 
 import java.util.List;
 
@@ -20,8 +23,11 @@ import retrofit2.Callback;
 public class Repository {
     private static final String TAG = Repository.class.getSimpleName();
     private CategoryDao mCategoryDao;
+    private TokenDao mTokenDao;
+
     private LiveData<Category> mCategory;
     private LiveData<List<Category>> mCategoriesList;
+    private LiveData<String> mTokenValue;
 
     private static volatile Repository INSTANCE;
     private final LumaApi mLumaApi;
@@ -42,6 +48,8 @@ public class Repository {
         LumaRoomDatabase db = LumaRoomDatabase.getDatabase(application);
         mLumaApi = new LumaApi();
         mCategoryDao = db.mCategoryDao();
+       // mTokenDao = db.mTokenDao();
+
     }
 
 
@@ -77,7 +85,18 @@ public class Repository {
         for (int x = 0; x < categories.size(); x++)
             mCategories[x] = categories.get(x);
 
-        new insertAsyncTask(mCategoryDao).execute(mCategories);
+        new insertCategoriesAsyncTask(mCategoryDao).execute(mCategories);
+    }
+
+    /*------------ */
+
+    public LiveData<String> getTokenValue(int id) {
+        return mTokenDao.getTokenValue(id);
+    }
+
+    public void insertToken(Token token){
+        Token[] mTokens = new Token[]{token};
+        new insertTokeAsyncTask(mTokenDao).execute(mTokens);
     }
 
     /**---------------------------- Api methods----------------------**/
@@ -91,6 +110,13 @@ public class Repository {
         mLumaApi.getCategoryProducts(tokenValue, categoryId, listCallback);
     }
 
+
+    public void getCategoryProductsDetails(String tokenValue,
+                                           String skuListString,
+                                           Callback<CategoryProductsDetails> productsDetailsCallback){
+        mLumaApi.getCategoryProductsDetails(tokenValue, skuListString, productsDetailsCallback);
+    }
+
     public void adminToken(Callback<String> tokenCallback) {
         mLumaApi.adminToken(tokenCallback);
     }
@@ -99,10 +125,10 @@ public class Repository {
 
     /**---------------------------- Api methods end ----------------------**/
 
-    private static class insertAsyncTask extends AsyncTask<Category, Void, Void> {
+    private static class insertCategoriesAsyncTask extends AsyncTask<Category, Void, Void> {
         private CategoryDao mCategoryDao;
 
-        insertAsyncTask(CategoryDao categoryDao) {
+        insertCategoriesAsyncTask(CategoryDao categoryDao) {
             mCategoryDao = categoryDao;
 
         }
@@ -114,5 +140,21 @@ public class Repository {
             return null;
         }
 
+    }
+
+    private static class insertTokeAsyncTask extends AsyncTask<Token,Void,Void>{
+        TokenDao mTokenDao;
+        insertTokeAsyncTask(TokenDao tokenDao) {
+            mTokenDao=tokenDao;
+        }
+
+        @Override
+        protected Void doInBackground(Token... tokens) {
+            mTokenDao.insert(tokens);
+
+            Log.d(TAG, "doInBackground: " + tokens.length);
+
+            return null;
+        }
     }
 }
